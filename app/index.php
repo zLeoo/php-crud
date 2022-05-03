@@ -34,22 +34,18 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
-						while($linha = mysqli_fetch_assoc($resultado)){
-							echo "<tr>";
-							echo "<td>"."000".$linha['id']."</td>";
-							echo "<td>".$linha['nome']."</td>";
-							echo  "<td>".$linha['preco']."</td>";
-							echo  "<td>".$linha['quantidade']."</td>";
-							echo   "<td>";
-							echo		"<a href='#editEmployeeModal' onclick='setupEditModal(".$linha['id'].',"'.$linha['nome'].'",'.$linha['preco'].','.$linha['quantidade']. ")' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>";
-							echo		"<a href='deletar-produto.php?produto_id=".$linha['id']."' class='delete'><i class='material-icons' data-toggle='tooltip' title='Deletar'>&#xE872;</i></a>";
-							echo	"</td>";
-							echo "</tr>";
-
-						}
-
-					?>
+					<?php while($linha = mysqli_fetch_assoc($resultado)):?>
+							<tr>
+								<td><?php echo "000".$linha['id']?></td>
+								<td><?php echo $linha['nome']?></td>
+								<td><?php echo $linha['preco']?></td>
+								<td><?php echo $linha['quantidade']?></td>
+								<td>
+									<a href='#editEmployeeModal' onclick='setupEditModal(<?php echo $linha['id'] ?>,"<?php echo $linha['nome'] ?>",<?php echo $linha['preco'] ?>,<?php echo $linha['quantidade'] ?>)' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
+									<a href='deletar-produto.php?produto_id=<?php echo $linha['id']?>' class='delete'><i class='material-icons' data-toggle='tooltip' title='Deletar'>&#xE872;</i></a>
+								</td>
+							</tr>
+					<?php endwhile; ?>
 				</tbody>
 			</table>
 			
