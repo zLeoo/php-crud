@@ -5,7 +5,7 @@
     $preco = $_POST['preco'];
     $quantidade = $_POST['quantidade'];
 
-    $sql = "INSERT INTO produtos (nome, preco, quantidade)
+    $sql = "INSERT INTO produtos_estoque (nome, preco, quantidade)
     VALUES ('$nome', '$preco', '$quantidade')";
 
     if (mysqli_query($conexao, $sql)) {

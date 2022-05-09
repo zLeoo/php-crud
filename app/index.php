@@ -2,11 +2,25 @@
 	include_once "header.php"; 
 	include "database.php";
 
-	session_start();
-
-	$sql = "SELECT * FROM produtos";
+	$sql = "SELECT * FROM produtos_estoque";
 
 	$resultado = mysqli_query($conexao, $sql);
+
+	session_start();
+
+	if (isset($_SESSION['logado'])) {
+		
+		$logado = $_SESSION['logado'];
+	
+		if ($logado = false) {
+			$_SESSION['mensagem'] = "Login e/ou senha inválido!";
+			header('Location: login-usuario.php');
+		}
+
+	}else{
+		$_SESSION['mensagem'] = "Você deve logar antes de acessar o estoque.";
+		header('Location: login-usuario.php');
+	}
 
 ?>
 <div class="container-xl">

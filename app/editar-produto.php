@@ -6,7 +6,7 @@
     $quantidade = $_POST['quantidade-edit'];
 
 
-    $sql = "UPDATE produtos SET nome='$nome', preco='$preco', quantidade='$quantidade'
+    $sql = "UPDATE produtos_estoque SET nome='$nome', preco='$preco', quantidade='$quantidade'
     WHERE id='$id'";
 
     if (mysqli_query($conexao, $sql)) {
